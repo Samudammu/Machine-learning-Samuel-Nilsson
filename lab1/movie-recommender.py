@@ -9,7 +9,7 @@ mlb = MultiLabelBinarizer()
 genre_matrix = mlb.fit_transform(movies["genres"])
 
 # NearestNeighbors-modell
-nn = NearestNeighbors(n_neighbors=6, metric='cosine')  # 6 = 5 rekommendationer + inputfilmen
+nn = NearestNeighbors(n_neighbors=6, metric='cosine')
 nn.fit(genre_matrix)
 
 # Funktion för rekommendationer
@@ -20,13 +20,13 @@ def recommend_movies(title):
     idx = movies[movies["title"] == title].index[0]
     distances, indices = nn.kneighbors([genre_matrix[idx]])
     
-    # Exkludera inputfilmen själv och tar topp 5
+    # Exkludera inputfilmen och tar topp 5
     recommended = [movies["title"].iloc[i] for i in indices[0] if i != idx]
     return recommended[:5]
 
 # Kör script
 if __name__ == "__main__":
-    input_movie = "Cars (2006)"  # byt till valfri film
+    input_movie = "Cars (2006)"  # välj valfri film
     recommendations = recommend_movies(input_movie)
 
     print(f"Recommended movies for '{input_movie}':")
