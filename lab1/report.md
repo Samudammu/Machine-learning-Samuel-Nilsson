@@ -10,10 +10,8 @@ Datasetet som används är "MovieLens ml-latest", där varje film har en titel o
 ## 2. Dataset
 Datasetet innehåller följande filer:  
 - "movies.csv" – lista med filmer och deras genres  
-- "ratings.csv" – användarvärderingar (ej använda i denna version)  
-- "tags.csv" – taggar för filmer (ej använda i denna version)  
-
-För denna laboration används endast "movies.csv".  
+- "ratings.csv" – användarvärderingar (används ej i denna modell)  
+- "tags.csv" – taggar för filmer (används ej i denna modell)   
 
 Mappen "ml-latest" ligger lokalt och är ".gitignore:ad" för att undvika att ladda upp stora filer till GitHub.
 
